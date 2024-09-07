@@ -1,24 +1,26 @@
 //Maya ASCII 2025ff03 scene
 //Name: Lamp02.ma
-//Last modified: Fri, Sep 06, 2024 10:49:37 AM
+//Last modified: Fri, Sep 06, 2024 06:12:21 PM
 //Codeset: 1252
 requires maya "2025ff03";
 requires "stereoCamera" "10.0";
+requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" -nodeType "aiImagerDenoiserOidn"
+		 "mtoa" "5.4.2.1";
 requires "mtoa" "5.4.2.1";
+requires "stereoCamera" "10.0";
 currentUnit -l inch -a degree -t film;
 fileInfo "application" "maya";
 fileInfo "product" "Maya 2025";
 fileInfo "version" "2025";
 fileInfo "cutIdentifier" "202407121012-8ed02f4c99";
 fileInfo "osv" "Windows 10 Home v2009 (Build: 19045)";
-fileInfo "UUID" "710FA47B-4A29-278C-C638-73B890B697AF";
+fileInfo "UUID" "08E3D1B1-46D2-5E9F-EC63-75B069CB100D";
 createNode transform -s -n "persp";
 	rename -uid "3AC7594F-4722-39EF-EA81-FC8392CB9EB2";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 66.277527546601519 40.10535566207151 59.104749602009022 ;
-	setAttr ".r" -type "double3" -16.064389682754879 46.200000000000266 0 ;
-	setAttr ".rp" -type "double3" 4.1961185182683078e-15 1.6784474073073231e-14 0 ;
-	setAttr ".rpt" -type "double3" -7.2938872445475626e-15 -2.2970583446566477e-15 -1.0196118419120475e-14 ;
+	setAttr ".t" -type "double3" 56.613933993043474 3.0783791560095235 64.420592882705606 ;
+	setAttr ".r" -type "double3" 0.59999999999935805 42.200000000001182 0 ;
+	setAttr ".rpt" -type "double3" 6.5692708263371021e-15 -1.3211801202719613e-14 3.7832215292756408e-15 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "DF35A4DE-46D5-385A-6E17-A99C18F2C4C3";
 	setAttr -k off ".v" no;
@@ -26,16 +28,16 @@ createNode camera -s -n "perspShape" -p "persp";
 	setAttr ".ncp" 0.03937007874015748;
 	setAttr ".fcp" 3937.0078740157478;
 	setAttr ".fd" 1.9685039370078738;
-	setAttr ".coi" 120.44506338859185;
+	setAttr ".coi" 120.44506338860255;
 	setAttr ".ow" 3.9370078740157477;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
-	setAttr ".tp" -type "double3" -77.338530909711466 33.06590310022176 -54.49746476967556 ;
+	setAttr ".tp" -type "double3" -77.338530909711665 33.06590310022186 -54.497464769675389 ;
 	setAttr ".hc" -type "string" "viewSet -p %camera";
 createNode transform -s -n "top";
 	rename -uid "EB2C1D64-4456-C43C-E751-BEBB0FCCD9EA";
-	setAttr ".t" -type "double3" -0.37705149033371821 393.74015748031496 0.096226402624046734 ;
+	setAttr ".t" -type "double3" -0.37705149033371821 393.74015748031496 0.09622640262404672 ;
 	setAttr ".r" -type "double3" -90 0 0 ;
 createNode camera -s -n "topShape" -p "top";
 	rename -uid "F91D4A04-415B-C815-145E-C0924413A797";
@@ -63,7 +65,7 @@ createNode camera -s -n "frontShape" -p "front";
 	setAttr ".fcp" 3937.0078740157478;
 	setAttr ".fd" 1.9685039370078738;
 	setAttr ".coi" 393.74015748031496;
-	setAttr ".ow" 19.419004357934721;
+	setAttr ".ow" 167.66694989432526;
 	setAttr ".imn" -type "string" "front";
 	setAttr ".den" -type "string" "front_depth";
 	setAttr ".man" -type "string" "front_mask";
@@ -72,7 +74,7 @@ createNode camera -s -n "frontShape" -p "front";
 	setAttr ".ai_translator" -type "string" "orthographic";
 createNode transform -s -n "side";
 	rename -uid "07661401-447A-BCEA-A4BF-C4B64BA0212A";
-	setAttr ".t" -type "double3" 393.74015748031496 12.453095387986588 -1.7981803355642387 ;
+	setAttr ".t" -type "double3" 393.74015748031496 12.453095387986586 -1.7981803355642387 ;
 	setAttr ".r" -type "double3" 0 90 0 ;
 createNode camera -s -n "sideShape" -p "side";
 	rename -uid "11FCCCA4-4B17-8258-A26C-FABFF2879A88";
@@ -105,7 +107,7 @@ createNode imagePlane -n "imagePlaneShape1" -p "imagePlane1";
 	setAttr ".cs" -type "string" "sRGB";
 createNode transform -n "imagePlane2";
 	rename -uid "70AA6EB7-476F-7970-FFCA-2BBAC47D4CD7";
-	setAttr ".t" -type "double3" -69.409716981312528 13.05004812304057 1.7075481003282069 ;
+	setAttr ".t" -type "double3" -69.409716981312513 13.050048123040568 1.7075481003282069 ;
 	setAttr ".r" -type "double3" 0 90 0 ;
 	setAttr ".s" -type "double3" 10 10 10 ;
 createNode imagePlane -n "imagePlaneShape2" -p "imagePlane2";
@@ -120,7 +122,7 @@ createNode imagePlane -n "imagePlaneShape2" -p "imagePlane2";
 	setAttr ".cs" -type "string" "sRGB";
 createNode transform -n "pCylinder1";
 	rename -uid "8B20CD21-4BE4-E87E-C3D8-3FA9852CCDDE";
-	setAttr ".t" -type "double3" -0.052219917488088269 2.5577701620062765 1.7075481003282051 ;
+	setAttr ".t" -type "double3" -0.052219917488088269 2.5577701620062765 1.7075481003282049 ;
 	setAttr ".s" -type "double3" 2.6 2.6 2.6 ;
 createNode mesh -n "pCylinderShape1" -p "pCylinder1";
 	rename -uid "D6746D05-4365-15BC-0A97-1C953F0AFDEC";
@@ -226,22 +228,22 @@ createNode mesh -n "pPipeShape1" -p "pPipe1";
 		-0.28214362 -1.5943148 -0.32942936 -0.28214362 -1.5013962 -0.25158826 -0.28214362 
 		-1.427651 -0.15350315 -0.28214362 -1.3803016 -0.044775005 -0.28214362 -1.3639916 
 		0.063953206 -0.28214362 -1.3803016 0.16203842 -0.28214362 -1.427651 0.23987919 -0.28214362 
-		-1.5013962 0.28985581 -0.28214362 -1.5943148 0.17816326 0.10298239 -1.6973224 0.16725183 
-		0.10298239 -1.7408808 0.13558595 0.10298239 -1.780165 0.086264901 0.10298239 -1.8113474 
-		0.024116738 0.10298239 -1.8313729 -0.044774987 0.10298239 -1.838267 -0.11366669 0.10298239 
-		-1.8313729 -0.17581475 0.10298239 -1.8113474 -0.22513592 0.10298239 -1.780165 -0.25680184 
-		0.10298239 -1.7408808 -0.2677131 0.10298239 -1.6973224 -0.25680184 0.10298239 -1.6537638 
-		-0.22513592 0.10298239 -1.6144768 -0.17581475 0.10298239 -1.5832953 -0.11366671 0.10298239 
-		-1.5632726 -0.044774994 0.10298239 -1.5563793 0.024116738 0.10298239 -1.5632726 0.086264901 
-		0.10298239 -1.5832953 0.13558595 0.10298239 -1.6144768 0.16725183 0.10298239 -1.6537638 
-		-0.10181222 0.10298239 -1.6973224 -0.09902066 0.10298239 -1.6259801 -0.090919048 
-		0.10298239 -1.5616243 -0.078300335 0.10298239 -1.5105515 -0.06240036 0.10298239 -1.4777583 
-		-0.044774972 0.10298239 -1.466458 -0.027149528 0.10298239 -1.4777583 -0.011249422 
-		0.10298239 -1.5105515 0.0013690075 0.10298239 -1.5616243 0.0094703306 0.10298239 
-		-1.6259801 0.012262044 0.10298239 -1.6973224 0.0094703306 0.10298239 -1.7686628 0.0013690075 
-		0.10298239 -1.8330215 -0.011249422 0.10298239 -1.8840964 -0.027149532 0.10298239 
-		-1.9168886 -0.044774961 0.10298239 -1.9281855 -0.06240036 0.10298239 -1.9168886 -0.078300335 
-		0.10298239 -1.8840964 -0.090919048 0.10298239 -1.8330215 -0.09902066 0.10298239 -1.7686628 
+		-1.5013962 0.28985581 -0.28214362 -1.5943148 0.17816326 0.10298238 -1.6973224 0.16725183 
+		0.10298238 -1.7408808 0.13558595 0.10298238 -1.780165 0.086264901 0.10298238 -1.8113474 
+		0.024116738 0.10298238 -1.8313729 -0.044774987 0.10298238 -1.838267 -0.11366669 0.10298238 
+		-1.8313729 -0.17581475 0.10298238 -1.8113474 -0.22513592 0.10298238 -1.780165 -0.25680184 
+		0.10298238 -1.7408808 -0.2677131 0.10298238 -1.6973224 -0.25680184 0.10298238 -1.6537638 
+		-0.22513592 0.10298238 -1.6144768 -0.17581475 0.10298238 -1.5832953 -0.11366671 0.10298238 
+		-1.5632726 -0.044774994 0.10298238 -1.5563793 0.024116738 0.10298238 -1.5632726 0.086264901 
+		0.10298238 -1.5832953 0.13558595 0.10298238 -1.6144768 0.16725183 0.10298238 -1.6537638 
+		-0.10181222 0.10298238 -1.6973224 -0.09902066 0.10298238 -1.6259801 -0.090919048 
+		0.10298238 -1.5616243 -0.078300335 0.10298238 -1.5105515 -0.06240036 0.10298238 -1.4777583 
+		-0.044774972 0.10298238 -1.466458 -0.027149528 0.10298238 -1.4777583 -0.011249422 
+		0.10298238 -1.5105515 0.0013690075 0.10298238 -1.5616243 0.0094703306 0.10298238 
+		-1.6259801 0.012262044 0.10298238 -1.6973224 0.0094703306 0.10298238 -1.7686628 0.0013690075 
+		0.10298238 -1.8330215 -0.011249422 0.10298238 -1.8840964 -0.027149532 0.10298238 
+		-1.9168886 -0.044774961 0.10298238 -1.9281855 -0.06240036 0.10298238 -1.9168886 -0.078300335 
+		0.10298238 -1.8840964 -0.090919048 0.10298238 -1.8330215 -0.09902066 0.10298238 -1.7686628 
 		0.06633614 -0.28214362 -1.6973224 0.060897972 -0.28214362 -1.6973224 0.04511581 -0.28214362 
 		-1.6973224 0.020534508 -0.28214362 -1.6973224 -0.01043974 -0.28214362 -1.6973224 
 		-0.044774964 -0.28214362 -1.6973224 -0.079110175 -0.28214362 -1.6973224 -0.11008441 
@@ -2004,15 +2006,15 @@ createNode mesh -n "pCylinderShape9" -p "pCylinder9";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "A63EA757-4683-2177-D9F2-D59A40A28BE2";
+	rename -uid "68729B43-4482-F499-9243-CC9A3AD0A8F7";
 	setAttr -s 2 ".lnk";
 	setAttr -s 2 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "69935647-4D4E-15B8-5E8C-96A698F5DDD6";
+	rename -uid "CA608271-43BA-5EA3-A5F4-DD821CCA382A";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "F86B962D-426B-BCBA-E85F-90AF97B0B9A7";
+	rename -uid "FF9D137E-4D21-8802-05D4-B7852CAA27E7";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "936895E9-4E00-51EE-8A1C-5493A2C89BD4";
+	rename -uid "ABA50AC9-4425-4A84-F31A-92A4C76D679D";
 	setAttr ".cdl" 2;
 	setAttr -s 3 ".dli[1:2]"  1 2;
 	setAttr -s 3 ".dli";
@@ -2020,7 +2022,7 @@ createNode displayLayer -n "defaultLayer";
 	rename -uid "4E3AC2C5-40CA-DBCF-86F0-AE8ECBAEFF8C";
 	setAttr ".ufem" -type "stringArray" 0  ;
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "7F98596D-400A-2B7F-F137-C5932E4DA241";
+	rename -uid "9F6E2143-49CE-A54C-9825-118600877432";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "03965A8C-44F4-3FF1-028D-719A7E03417E";
 	setAttr ".g" yes;
@@ -2077,9 +2079,9 @@ createNode script -n "sceneConfigurationScriptNode";
 	setAttr ".st" 6;
 createNode polyCylinder -n "polyCylinder1";
 	rename -uid "72BEF5DE-4119-151D-4F5C-7C945C3A246A";
-	setAttr ".ax" -type "double3" 0 0.99999999999999989 0 ;
-	setAttr ".r" 0.99999999999999989;
-	setAttr ".h" 1.9999999999999998;
+	setAttr ".ax" -type "double3" 0 0.99999999999999978 0 ;
+	setAttr ".r" 0.99999999999999978;
+	setAttr ".h" 1.9999999999999996;
 	setAttr ".sh" 8;
 	setAttr ".sc" 1;
 	setAttr ".cuv" 3;
@@ -2097,17 +2099,17 @@ createNode displayLayer -n "layerFrontRef";
 	setAttr ".do" 2;
 createNode polyPipe -n "polyPipe1";
 	rename -uid "5131FB36-4BEE-291C-E2B9-F6B9605648D0";
-	setAttr ".ax" -type "double3" 0 0.99999999999999989 0 ;
-	setAttr ".r" 0.99999999999999989;
-	setAttr ".h" 1.9999999999999998;
-	setAttr ".t" 0.49999999999999994;
+	setAttr ".ax" -type "double3" 0 0.99999999999999978 0 ;
+	setAttr ".r" 0.99999999999999978;
+	setAttr ".h" 1.9999999999999996;
+	setAttr ".t" 0.49999999999999989;
 	setAttr ".sc" 0;
 createNode polyPipe -n "polyPipe2";
 	rename -uid "8CC05A8B-48BE-B91B-60EB-648B120A2736";
-	setAttr ".ax" -type "double3" 0 0.99999999999999989 0 ;
-	setAttr ".r" 0.99999999999999989;
-	setAttr ".h" 1.9999999999999998;
-	setAttr ".t" 0.49999999999999994;
+	setAttr ".ax" -type "double3" 0 0.99999999999999978 0 ;
+	setAttr ".r" 0.99999999999999978;
+	setAttr ".h" 1.9999999999999996;
+	setAttr ".t" 0.49999999999999989;
 	setAttr ".sc" 0;
 createNode animCurveTL -n "pPipeShape2_pnts_20__pntx";
 	rename -uid "CCDC96C4-45E2-C0AC-2A86-78A5B29F5ADA";
@@ -2717,10 +2719,10 @@ createNode polyExtrudeFace -n "polyExtrudeFace1";
 	setAttr ".ws" yes;
 	setAttr ".pvt" -type "float3" -0.052220285 17.611273 0.014358947 ;
 	setAttr ".rs" 33357;
-	setAttr ".lt" -type "double3" 2.1854783949314103e-17 2.1854783949314103e-17 9.9530574859015744 ;
+	setAttr ".lt" -type "double3" 2.18547839493141e-17 2.18547839493141e-17 9.9530574859015744 ;
 	setAttr ".c[0]"  0 1 1;
 	setAttr ".cbn" -type "double3" -0.54253619208597714 17.611272492636122 -0.47595696171499235 ;
-	setAttr ".cbx" -type "double3" 0.43809562495825843 17.611272492636122 0.50467485532924328 ;
+	setAttr ".cbx" -type "double3" 0.43809562495825838 17.611272492636122 0.50467485532924328 ;
 createNode polyTweak -n "polyTweak1";
 	rename -uid "A4E36B70-46C2-C6CB-5971-FB86912EE8D7";
 	setAttr ".uopa" yes;
@@ -2801,11 +2803,26 @@ createNode polyTweak -n "polyTweak1";
 		 -1.65411484 0 0 -1.65411508 -2.9018543e-07 12.16611385 -1.65411484;
 createNode polyCylinder -n "polyCylinder2";
 	rename -uid "CAE0B22A-4260-F552-6316-C6A791B56509";
-	setAttr ".ax" -type "double3" 0 0.99999999999999989 0 ;
-	setAttr ".r" 0.99999999999999989;
-	setAttr ".h" 1.9999999999999998;
+	setAttr ".ax" -type "double3" 0 0.99999999999999978 0 ;
+	setAttr ".r" 0.99999999999999978;
+	setAttr ".h" 1.9999999999999996;
 	setAttr ".sc" 1;
 	setAttr ".cuv" 3;
+createNode aiOptions -s -n "defaultArnoldRenderOptions";
+	rename -uid "D5A08252-4B31-DB3D-6C77-5BB8ACA08FD7";
+	setAttr ".version" -type "string" "5.4.2.1";
+createNode aiAOVFilter -s -n "defaultArnoldFilter";
+	rename -uid "5F6A0D04-4D50-2D20-3269-EFAE1B7DE6A9";
+	setAttr ".ai_translator" -type "string" "gaussian";
+createNode aiAOVDriver -s -n "defaultArnoldDriver";
+	rename -uid "9EDE1860-4750-47B6-F7FA-49B313DA9E68";
+	setAttr ".ai_translator" -type "string" "exr";
+createNode aiAOVDriver -s -n "defaultArnoldDisplayDriver";
+	rename -uid "4191D8EF-44C8-D949-1348-45BC48D5BFAC";
+	setAttr ".ai_translator" -type "string" "maya";
+	setAttr ".output_mode" 0;
+createNode aiImagerDenoiserOidn -s -n "defaultArnoldDenoiser";
+	rename -uid "CA9424E3-4030-C35A-AE54-808B28E5A651";
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
@@ -2850,6 +2867,8 @@ select -ne :defaultColorMgtGlobals;
 select -ne :hardwareRenderGlobals;
 	setAttr ".ctrs" 256;
 	setAttr ".btrs" 512;
+select -ne :ikSystem;
+	setAttr -s 4 ".sol";
 connectAttr "layerFrontRef.di" "imagePlane1.do";
 connectAttr ":defaultColorMgtGlobals.cme" "imagePlaneShape1.cme";
 connectAttr ":defaultColorMgtGlobals.cfe" "imagePlaneShape1.cmcf";
@@ -2864,7 +2883,6 @@ connectAttr ":defaultColorMgtGlobals.wsn" "imagePlaneShape2.ws";
 connectAttr ":sideShape.msg" "imagePlaneShape2.ltc";
 connectAttr "polyExtrudeFace1.out" "pCylinderShape1.i";
 connectAttr "polyPipe1.out" "pPipeShape1.i";
-connectAttr "polyPipe2.out" "pPipeShape2.i";
 connectAttr "pPipeShape2_pnts_20__pntx.o" "pPipeShape2.pt[20].px";
 connectAttr "pPipeShape2_pnts_20__pnty.o" "pPipeShape2.pt[20].py";
 connectAttr "pPipeShape2_pnts_20__pntz.o" "pPipeShape2.pt[20].pz";
@@ -2985,6 +3003,7 @@ connectAttr "pPipeShape2_pnts_58__pntz.o" "pPipeShape2.pt[58].pz";
 connectAttr "pPipeShape2_pnts_59__pntx.o" "pPipeShape2.pt[59].px";
 connectAttr "pPipeShape2_pnts_59__pnty.o" "pPipeShape2.pt[59].py";
 connectAttr "pPipeShape2_pnts_59__pntz.o" "pPipeShape2.pt[59].pz";
+connectAttr "polyPipe2.out" "pPipeShape2.i";
 connectAttr "polyCylinder2.out" "pCylinderShape2.i";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
@@ -2997,6 +3016,12 @@ connectAttr "layerManager.dli[2]" "layerFrontRef.id";
 connectAttr "polyTweak1.out" "polyExtrudeFace1.ip";
 connectAttr "pCylinderShape1.wm" "polyExtrudeFace1.mp";
 connectAttr "polyCylinder1.out" "polyTweak1.ip";
+connectAttr ":defaultArnoldDenoiser.msg" ":defaultArnoldRenderOptions.imagers" -na
+		;
+connectAttr ":defaultArnoldDisplayDriver.msg" ":defaultArnoldRenderOptions.drivers"
+		 -na;
+connectAttr ":defaultArnoldFilter.msg" ":defaultArnoldRenderOptions.filt";
+connectAttr ":defaultArnoldDriver.msg" ":defaultArnoldRenderOptions.drvr";
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "pCylinderShape1.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "pPipeShape1.iog" ":initialShadingGroup.dsm" -na;
