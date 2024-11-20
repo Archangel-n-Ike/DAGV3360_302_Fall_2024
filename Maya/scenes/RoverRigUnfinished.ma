@@ -1,6 +1,6 @@
 //Maya ASCII 2025ff03 scene
-//Name: RoverRig.ma
-//Last modified: Fri, Nov 15, 2024 07:19:25 PM
+//Name: RoverRigUnfinished.ma
+//Last modified: Fri, Nov 15, 2024 07:19:42 PM
 //Codeset: 1252
 requires maya "2025ff03";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" -nodeType "aiImagerDenoiserOidn"
@@ -11,7 +11,7 @@ fileInfo "product" "Maya 2025";
 fileInfo "version" "2025";
 fileInfo "cutIdentifier" "202407121012-8ed02f4c99";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 22631)";
-fileInfo "UUID" "2A88A5CF-4892-5C40-E206-DD950F8678E6";
+fileInfo "UUID" "53F8AA81-49BF-6957-7DE2-6E93AB21E9EC";
 createNode transform -s -n "persp";
 	rename -uid "EDB4AAF0-4A13-341C-3DC7-B6A7616DEDEA";
 	setAttr ".v" no;
@@ -45942,4 +45942,4 @@ connectAttr "layerManager.dli[2]" "layer1.id";
 connectAttr "Body_GeoSG.pa" ":renderPartition.st" -na;
 connectAttr "lambert2.msg" ":defaultShaderList1.s" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
-// End of RoverRig.ma
+// End of RoverRigUnfinished.ma
