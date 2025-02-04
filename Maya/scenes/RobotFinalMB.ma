@@ -1,6 +1,6 @@
 //Maya ASCII 2025ff03 scene
 //Name: RobotFinalMB.ma
-//Last modified: Fri, Dec 13, 2024 07:45:44 PM
+//Last modified: Thu, Jan 23, 2025 09:35:01 PM
 //Codeset: 1252
 requires maya "2025ff03";
 requires "stereoCamera" "10.0";
@@ -13,18 +13,18 @@ fileInfo "product" "Maya 2025";
 fileInfo "version" "2025";
 fileInfo "cutIdentifier" "202407121012-8ed02f4c99";
 fileInfo "osv" "Windows 10 Home v2009 (Build: 19045)";
-fileInfo "UUID" "FF9ABBCE-453D-F722-5BE5-1AA93FAFA074";
+fileInfo "UUID" "C72DC5A7-4991-63F6-4486-E7B3BE22C7B3";
 createNode transform -s -n "persp";
 	rename -uid "8580DF91-4BA0-DFE1-CE89-77A3154B07C0";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 11.785861087307524 253.03207776114962 752.32595961923948 ;
-	setAttr ".r" -type "double3" -9.6000000000005254 719.99999999999739 -2.9178540868666186e-16 ;
+	setAttr ".t" -type "double3" 354.62587776880235 39.40412739386781 355.8351730517777 ;
+	setAttr ".r" -type "double3" -351.59999999881325 1842.7999999984083 5.4184701264964717e-16 ;
 	setAttr ".rpt" -type "double3" -2.149791394793329e-15 7.8321159842231099e-16 1.8849015397401635e-15 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "77D2C2CA-4DC2-C131-76EB-05A6290BCF22";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 816.26964689968463;
+	setAttr ".coi" 493.84473192063535;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -90,15 +90,7 @@ createNode transform -n "Geometry" -p "Robot";
 createNode transform -n "Robot_Geo" -p "Geometry";
 	rename -uid "AAC857AA-4B2B-96A6-7CBD-D9B029F1DA68";
 	addAttr -is true -ci true -k true -sn "currentUVSet" -ln "currentUVSet" -dt "string";
-	setAttr -l on ".tx";
-	setAttr -l on ".ty";
-	setAttr -l on ".tz";
-	setAttr -l on ".rx";
-	setAttr -l on ".ry";
-	setAttr -l on ".rz";
-	setAttr -l on ".sx";
-	setAttr -l on ".sy";
-	setAttr -l on ".sz";
+	setAttr ".r" -type "double3" -4.3257106974140857e-06 0 0 ;
 	setAttr -k on ".currentUVSet" -type "string" "map1";
 createNode mesh -n "Robot_GeoShape" -p "Robot_Geo";
 	rename -uid "5A88722E-4B85-1D12-B517-349336F77BC2";
@@ -47121,6 +47113,7 @@ createNode joint -n "Spine_01_FK_Jnt" -p "COG_Jnt";
 	setAttr ".bps" -type "matrix" -6.7990058028044587e-13 1 0 0 -1.2156942119645467e-14 0 1 0
 		 1 6.7978955797798345e-13 1.2101430968414206e-14 0 8.881784197014177e-15 115.52188110351561 -2.5867104530334566 1;
 	setAttr ".radi" 3;
+	setAttr ".liw" yes;
 createNode joint -n "Spine_02_FK_Jnt" -p "Spine_01_FK_Jnt";
 	rename -uid "18E091C3-4B00-6E96-84F4-30A3DAFC057B";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -47360,6 +47353,7 @@ createNode joint -n "L_Arm_01_RK_Jnt" -p "Spine_02_FK_Jnt";
 		 0.01638567894718658 -3.9140075893079944e-07 0.99986574575054155 0 -0.99986574574975329 1.3089651760660444e-06 0.016385678947686114 0
 		 99.590499877929659 182.58004760742182 -3.6969614028931153 1;
 	setAttr ".radi" 7;
+	setAttr ".liw" yes;
 createNode joint -n "L_Arm_02_RK_Jnt" -p "L_Arm_01_RK_Jnt";
 	rename -uid "E09E61C0-41F5-C47A-9746-5298D074CCDF";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -47372,6 +47366,7 @@ createNode joint -n "L_Arm_02_RK_Jnt" -p "L_Arm_01_RK_Jnt";
 		 0.016385678947186576 -3.9140075893079939e-07 0.99986574575054143 0 -0.99986574574975329 1.3089651760660444e-06 0.016385678947686114 0
 		 99.59040832519635 112.96893310546869 -3.696987152039398 1;
 	setAttr ".radi" 7;
+	setAttr ".liw" yes;
 createNode joint -n "L_Arm_03_RK_Jnt" -p "L_Arm_02_RK_Jnt";
 	rename -uid "47CD640D-4B5D-1A19-FC1E-02B3254327BF";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -47384,6 +47379,7 @@ createNode joint -n "L_Arm_03_RK_Jnt" -p "L_Arm_02_RK_Jnt";
 		 0.016385678947186576 -3.9140075893079939e-07 0.99986574575054143 0 -0.99986574574975329 1.3089651760660444e-06 0.016385678947686114 0
 		 99.590313568201438 40.921493530277488 -3.6970138023821515 1;
 	setAttr ".radi" 7;
+	setAttr ".liw" yes;
 createNode parentConstraint -n "L_Arm_03_RK_Jnt_parentConstraint1" -p "L_Arm_03_RK_Jnt";
 	rename -uid "BDB38C7C-47D6-F805-6453-518B46A66DFA";
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Arm_03_FK_JntW0" -dv 1 -min 0 -at "double";
@@ -47441,6 +47437,7 @@ createNode joint -n "L_Hand_FK_Jnt" -p "L_Arm_03_RK_Jnt";
 		 0.016385678947186573 -3.9140075893079934e-07 0.99986574575054132 0 -0.99986574574975329 1.3089651760660444e-06 0.016385678947686114 0
 		 99.590313568201395 40.921493530277495 -3.6970138023821506 1;
 	setAttr ".radi" 5;
+	setAttr ".liw" yes;
 createNode joint -n "L_Finger_01_FK_Jnt" -p "L_Hand_FK_Jnt";
 	rename -uid "B3354EE9-4EB6-406F-80E8-F986D14668A8";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -47453,6 +47450,7 @@ createNode joint -n "L_Finger_01_FK_Jnt" -p "L_Hand_FK_Jnt";
 		 0.93758644718697737 -1.0409187888808097e-16 0.34775228834804472 0 -0.34775228834804472 3.860792055452862e-17 0.93758644718697737 0
 		 87.480667114333883 31.623161315936713 -8.4526901239221104 1;
 	setAttr ".radi" 3;
+	setAttr ".liw" yes;
 createNode parentConstraint -n "L_Finger_01_FK_Jnt_parentConstraint1" -p "L_Finger_01_FK_Jnt";
 	rename -uid "34B2F750-4B40-10F1-E34A-E2B74A440048";
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Finger_01_FK_Jnt_CtrlW0" -dv 1 
@@ -47506,6 +47504,7 @@ createNode joint -n "L_Finger_02_FK_Jnt" -p "L_Hand_FK_Jnt";
 		 0.023908959567753473 -2.6546078741398777e-18 -0.99971413996821523 0 0.99971413996821579 -1.1098969169404636e-16 0.023908959567753445 0
 		 99.601425170898395 31.623155593872021 9.1142330169678232 1;
 	setAttr ".radi" 3;
+	setAttr ".liw" yes;
 createNode parentConstraint -n "L_Finger_02_FK_Jnt_parentConstraint1" -p "L_Finger_02_FK_Jnt";
 	rename -uid "78DA7B65-4C0B-F1C5-9E9C-03B9F19DB1E5";
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Finger_02_FK_Jnt_CtrlW0" -dv 1 
@@ -47560,6 +47559,7 @@ createNode joint -n "L_Finger_03_FK_Jnt" -p "L_Hand_FK_Jnt";
 		 -0.93758652748864713 1.0409187888808097e-16 0.34775207184398121 0 -0.34775207184398088 3.8607655856732603e-17 -0.93758652748864668 0
 		 111.69997406013462 31.623161315944529 -8.4526901236780851 1;
 	setAttr ".radi" 3;
+	setAttr ".liw" yes;
 createNode parentConstraint -n "L_Finger_03_FK_Jnt_parentConstraint1" -p "L_Finger_03_FK_Jnt";
 	rename -uid "1E99F3BA-4575-5DD9-0843-3A86DEE46479";
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Finger_03_FK_Jnt_CtrlW0" -dv 1 
@@ -47977,6 +47977,7 @@ createNode joint -n "R_Arm_01_RK_Jnt" -p "Spine_02_FK_Jnt";
 		 0.016385678950876652 7.6130068751957231e-07 -0.99986574575026799 0 -0.99986574574708231 -2.6241673049327215e-06 -0.01638567895282244 0
 		 -99.590500000000006 182.57999999999998 -3.6969599999999998 1;
 	setAttr ".radi" 7;
+	setAttr ".liw" yes;
 createNode joint -n "R_Arm_02_RK_Jnt" -p "R_Arm_01_RK_Jnt";
 	rename -uid "AC3E7F5E-449A-2639-32DB-49BA0C027822";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -47989,6 +47990,7 @@ createNode joint -n "R_Arm_02_RK_Jnt" -p "R_Arm_01_RK_Jnt";
 		 0.016385678950876652 7.6130068751957231e-07 -0.99986574575026799 0 -0.99986574574708231 -2.6241673049327215e-06 -0.01638567895282244 0
 		 -99.590316485256707 112.96900000023446 -3.697009994600482 1;
 	setAttr ".radi" 7;
+	setAttr ".liw" yes;
 createNode joint -n "R_Arm_03_RK_Jnt" -p "R_Arm_02_RK_Jnt";
 	rename -uid "C67B0925-47B6-B674-9B8C-37ACDA364F4B";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -48001,6 +48003,7 @@ createNode joint -n "R_Arm_03_RK_Jnt" -p "R_Arm_02_RK_Jnt";
 		 0.016385678950876659 7.6130068751957263e-07 -0.99986574575026843 0 -0.99986574574708276 -2.6241673049327228e-06 -0.016385678952822447 0
 		 -99.59012654719406 40.921500000494305 -3.6970617390945737 1;
 	setAttr ".radi" 7;
+	setAttr ".liw" yes;
 createNode parentConstraint -n "R_Arm_03_RK_Jnt_parentConstraint1" -p "R_Arm_03_RK_Jnt";
 	rename -uid "C7C9ECEC-43BC-FFA9-FC66-EA95F1AFD1C5";
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Arm_03_FK_JntW0" -dv 1 -min 0 -at "double";
@@ -48060,6 +48063,7 @@ createNode joint -n "R_Hand_FK_Jnt" -p "R_Arm_03_RK_Jnt";
 		 0.016385678950876656 7.6130068751957242e-07 -0.99986574575026821 0 -0.99986574574708276 -2.6241673049327228e-06 -0.016385678952822447 0
 		 -99.590126547194075 40.921500000494341 -3.6970617390945755 1;
 	setAttr ".radi" 5;
+	setAttr ".liw" yes;
 createNode joint -n "R_Finger_01_FK_Jnt" -p "R_Hand_FK_Jnt";
 	rename -uid "6D235FEB-46E1-81A8-A92A-E286025AFA6D";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -48072,6 +48076,7 @@ createNode joint -n "R_Finger_01_FK_Jnt" -p "R_Hand_FK_Jnt";
 		 -0.92568853465447332 7.6129982743857897e-07 -0.37828658026511536 0 -0.37828658026577189 -2.6241699247187955e-06 0.9256885346507987 0
 		 -87.480522295119485 31.623200000497775 -8.4527309118399767 1;
 	setAttr ".radi" 3;
+	setAttr ".liw" yes;
 createNode parentConstraint -n "R_Finger_01_FK_Jnt_parentConstraint1" -p "R_Finger_01_FK_Jnt";
 	rename -uid "4227BA6B-4390-8D67-B300-30BA2A3E8013";
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Finger_01_FK_Jnt_Ctrl_GrpW0" -dv 
@@ -48124,6 +48129,7 @@ createNode joint -n "R_Finger_02_FK_Jnt" -p "R_Hand_FK_Jnt";
 		 -0.056652819697057218 7.6129602430682773e-07 0.99839393929440201 0 0.99839393929114106 -2.6241687604825386e-06 0.056652819698873119 0
 		 -99.601238001815688 31.623200000464152 9.1141782509538114 1;
 	setAttr ".radi" 3;
+	setAttr ".liw" yes;
 createNode parentConstraint -n "R_Finger_02_FK_Jnt_parentConstraint1" -p "R_Finger_02_FK_Jnt";
 	rename -uid "DCB2F090-44C6-F6FA-F0F3-9AB97CA84622";
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Finger_02_FK_Jnt_Ctrl_GrpW0" -dv 
@@ -48179,6 +48185,7 @@ createNode joint -n "R_Finger_03_FK_Jnt" -p "R_Hand_FK_Jnt";
 		 -0.93758621656219721 7.612997631086251e-07 -0.34775291014167797 0 -0.34775291014245457 -2.6241699723733324e-06 0.93758621655854624 0
 		 -111.69982229510984 31.623200000513329 -8.4527525664786154 1;
 	setAttr ".radi" 3;
+	setAttr ".liw" yes;
 createNode parentConstraint -n "R_Finger_03_FK_Jnt_parentConstraint1" -p "R_Finger_03_FK_Jnt";
 	rename -uid "3466A75C-4D76-17E6-389C-D2B3C932CEC0";
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Finger_03_FK_Jnt_Ctrl_GrpW0" -dv 
@@ -48452,6 +48459,7 @@ createNode joint -n "L_Leg_Clav_FK_Jnt" -p "Hip_FK_Jnt";
 	setAttr ".bps" -type "matrix" 1 9.9579925010371891e-17 1.2101430968414206e-14 0 -1.2156942119645467e-14 0 1 0
 		 2.1060222747278657e-16 -1 -8.2252213493310198e-27 0 9.9657487869268806 92.646797180169642 -2.9045696260457898 1;
 	setAttr ".radi" 3;
+	setAttr ".liw" yes;
 createNode joint -n "L_Leg_01_FK_Jnt" -p "L_Leg_Clav_FK_Jnt";
 	rename -uid "F1B2D346-4DC1-ADA0-6C2C-919EF826A84D";
 	setAttr ".v" no;
@@ -48670,6 +48678,7 @@ createNode joint -n "L_Leg_01_RK_Jnt" -p "L_Leg_Clav_FK_Jnt";
 		 0.0030272310078274908 -0.031925666365786386 -0.99948566157775642 0 0.99999541792571478 9.6646810009748047e-05 0.0030256878505336318 0
 		 28.95343399047853 89.926071166992145 -2.7601542472837086 1;
 	setAttr ".radi" 7;
+	setAttr ".liw" yes;
 createNode joint -n "L_Leg_02_RK_Jnt" -p "L_Leg_01_RK_Jnt";
 	rename -uid "D8BAF3DD-479E-F8AC-D7BD-FFBA3AC6ACB4";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -48681,6 +48690,7 @@ createNode joint -n "L_Leg_02_RK_Jnt" -p "L_Leg_01_RK_Jnt";
 		 0.0030272310078274921 -0.0319256663657864 -0.99948566157775687 0 0.99999541792571478 9.6646810009748047e-05 0.0030256878505336318 0
 		 28.95343399047848 57.00059509277343 -1.7084455490109904 1;
 	setAttr ".radi" 7;
+	setAttr ".liw" yes;
 createNode joint -n "L_Leg_03_RK_Jnt" -p "L_Leg_02_RK_Jnt";
 	rename -uid "BB6BCC89-401F-B978-B150-1CB95E5A4994";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -48691,6 +48701,7 @@ createNode joint -n "L_Leg_03_RK_Jnt" -p "L_Leg_02_RK_Jnt";
 		 0.0030272310078274934 -0.031925666365786413 -0.99948566157775731 0 0.999995417925715 9.6646810009748074e-05 0.0030256878505336327 0
 		 28.953433990478434 16.645686218753333 -0.419425199384446 1;
 	setAttr ".radi" 7;
+	setAttr ".liw" yes;
 createNode parentConstraint -n "L_Leg_03_RK_Jnt_parentConstraint1" -p "L_Leg_03_RK_Jnt";
 	rename -uid "13DCD210-42D5-1C5E-E25B-D29B00BDC7C5";
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Leg_03_FK_JntW0" -dv 1 -min 0 -at "double";
@@ -48749,6 +48760,7 @@ createNode joint -n "L_Foot_FK_Jnt" -p "L_Leg_03_RK_Jnt";
 		 0.0030272310078274947 -0.031925666365786427 -0.99948566157775776 0 0.99999541792571478 9.6646810009748047e-05 0.0030256878505336318 0
 		 28.953433990478459 16.64568621875334 -0.41942519938444656 1;
 	setAttr ".radi" 5;
+	setAttr ".liw" yes;
 createNode joint -n "L_Toe_01_FK_Jnt" -p "L_Foot_FK_Jnt";
 	rename -uid "99906EB2-40A3-0B4A-96CB-E1ADCB029103";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -48759,6 +48771,7 @@ createNode joint -n "L_Toe_01_FK_Jnt" -p "L_Foot_FK_Jnt";
 		 1.0000000000000002 1.0214539717529059e-16 1.3667018905483275e-14 0 -1.3755489802758092e-14 3.0945025238955778e-17 1.0000000000000009 0
 		 18.400512695312493 6.031445503234897 -0.41713279485710203 1;
 	setAttr ".radi" 3;
+	setAttr ".liw" yes;
 createNode parentConstraint -n "L_Toe_01_FK_Jnt_parentConstraint1" -p "L_Toe_01_FK_Jnt";
 	rename -uid "FD9A9AF3-434B-4D52-2106-87A866D2CBB9";
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Toe_01_FK_Jnt_CtrlW0" -dv 1 -min 
@@ -48810,6 +48823,7 @@ createNode joint -n "L_Toe_02_FK_Jnt" -p "L_Foot_FK_Jnt";
 		 1.3811434634858344e-14 -1.7061996414780185e-17 -1.0000000000000013 0 1 1.0569615929018061e-16 1.3757224526234069e-14 0
 		 28.953445434570217 7.7929387092590758 10.783873558044451 1;
 	setAttr ".radi" 3;
+	setAttr ".liw" yes;
 createNode parentConstraint -n "L_Toe_02_FK_Jnt_parentConstraint1" -p "L_Toe_02_FK_Jnt";
 	rename -uid "6EFB9F2D-4C93-98A7-4AF6-37B0FC82CCDE";
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Toe_02_FK_Jnt_CtrlW0" -dv 1 -min 
@@ -48861,6 +48875,7 @@ createNode joint -n "L_Toe_03_FK_Jnt" -p "L_Foot_FK_Jnt";
 		 -1.0000000000000002 -1.0237579013694376e-16 -1.4000519493739816e-14 0 1.3977534407683123e-14 -2.3984637874011972e-17 -1.0000000000000009 0
 		 39.506351470947266 6.0314455032349095 -0.41713279485695165 1;
 	setAttr ".radi" 3;
+	setAttr ".liw" yes;
 createNode parentConstraint -n "L_Toe_03_FK_Jnt_parentConstraint1" -p "L_Toe_03_FK_Jnt";
 	rename -uid "8081CE9F-43E0-F67A-E202-34B79832A05B";
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Toe_03_FK_Jnt_CtrlW0" -dv 1 -min 
@@ -49082,6 +49097,7 @@ createNode joint -n "R_Leg_Clav_FK_Jnt" -p "Hip_FK_Jnt";
 		 1.2156942119645491e-14 2.4103282011818116e-14 -1 0 7.8859849468955139e-16 1 2.4103282011826352e-14 0
 		 -9.9657499999999999 92.646799999999985 -2.9045700000000001 1;
 	setAttr ".radi" 3;
+	setAttr ".liw" yes;
 createNode joint -n "R_Leg_01_FK_Jnt" -p "R_Leg_Clav_FK_Jnt";
 	rename -uid "7547610B-48C6-7491-E742-3E9585434728";
 	setAttr ".v" no;
@@ -49306,6 +49322,7 @@ createNode joint -n "R_Leg_01_RK_Jnt" -p "R_Leg_Clav_FK_Jnt";
 		 0.003027231007842514 0.031925666365786386 0.99948566157775642 0 0.99999541792571511 -9.6646810010142127e-05 -0.0030256878505487733 0
 		 -28.953399999996304 89.926099999974127 -2.7601500000001655 1;
 	setAttr ".radi" 7;
+	setAttr ".liw" yes;
 createNode joint -n "R_Leg_02_RK_Jnt" -p "R_Leg_01_RK_Jnt";
 	rename -uid "82E958A9-43E0-C86F-2AE4-8A99941F8242";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -49317,6 +49334,7 @@ createNode joint -n "R_Leg_02_RK_Jnt" -p "R_Leg_01_RK_Jnt";
 		 0.0030272310078425127 0.031925666365786372 0.99948566157775598 0 0.99999541792571489 -9.6646810010142113e-05 -0.0030256878505487725 0
 		 -28.953399999951483 57.000600301918503 -1.7084405471317967 1;
 	setAttr ".radi" 7;
+	setAttr ".liw" yes;
 createNode joint -n "R_Leg_03_RK_Jnt" -p "R_Leg_02_RK_Jnt";
 	rename -uid "F9907246-467D-3864-371D-EB961C3DFDC9";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -49327,6 +49345,7 @@ createNode joint -n "R_Leg_03_RK_Jnt" -p "R_Leg_02_RK_Jnt";
 		 0.0030272310078425118 0.031925666365786358 0.99948566157775565 0 0.99999541792571478 -9.6646810010142086e-05 -0.003025687850548772 0
 		 -28.953399999896568 16.645700144482383 -0.41942047593023091 1;
 	setAttr ".radi" 7;
+	setAttr ".liw" yes;
 createNode parentConstraint -n "R_Leg_03_RK_Jnt_parentConstraint1" -p "R_Leg_03_RK_Jnt";
 	rename -uid "AF5AA13A-456B-FCDF-162A-DAB279321DCD";
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Leg_03_FK_JntW0" -dv 1 -min 0 -at "double";
@@ -49383,6 +49402,7 @@ createNode joint -n "R_Foot_FK_Jnt" -p "R_Leg_03_RK_Jnt";
 		 0.0030272310078425105 0.031925666365786344 0.9994856615777552 0 0.99999541792571478 -9.6646810010142086e-05 -0.003025687850548772 0
 		 -28.953399999896551 16.645700144482419 -0.41942047593023107 1;
 	setAttr ".radi" 5;
+	setAttr ".liw" yes;
 createNode joint -n "R_Toe_01_FK_Jnt" -p "R_Foot_FK_Jnt";
 	rename -uid "809CF61D-4D17-819B-FD72-07BED4F27223";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -49393,6 +49413,7 @@ createNode joint -n "R_Toe_01_FK_Jnt" -p "R_Foot_FK_Jnt";
 		 0.99999999999999867 3.2823407620369283e-15 -6.0368376963992887e-16 0 -4.7401318981066254e-16 -2.4303979883038684e-16 -0.99999999999999956 0
 		 -18.400499999896546 6.0314501444824451 -0.41712847593021229 1;
 	setAttr ".radi" 3;
+	setAttr ".liw" yes;
 createNode parentConstraint -n "R_Toe_01_FK_Jnt_parentConstraint1" -p "R_Toe_01_FK_Jnt";
 	rename -uid "0991760F-4B97-B207-684B-339200AB35E8";
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Toe_01_FK_Jnt_Ctrl_GrpW0" -dv 1 
@@ -49444,6 +49465,7 @@ createNode joint -n "R_Toe_02_FK_Jnt" -p "R_Foot_FK_Jnt";
 		 2.2508427413581167e-13 3.4964896434650102e-15 0.99999999999999833 0 0.99999999999999967 -1.1370570283941728e-17 -2.2514065264878091e-13 0
 		 -28.953399999896252 7.7929401444827615 10.783904524070007 1;
 	setAttr ".radi" 3;
+	setAttr ".liw" yes;
 createNode parentConstraint -n "R_Toe_02_FK_Jnt_parentConstraint1" -p "R_Toe_02_FK_Jnt";
 	rename -uid "CF4055BE-49D0-29B1-CEDF-7388D5FEDBD9";
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Toe_02_FK_Jnt_Ctrl_GrpW0" -dv 1 
@@ -49496,6 +49518,7 @@ createNode joint -n "R_Toe_03_FK_Jnt" -p "R_Foot_FK_Jnt";
 		 -0.99999999999999856 3.2816631356791248e-15 -5.1174342541315809e-17 0 -8.1098322501915732e-17 1.8758232831216125e-16 0.99999999999999944 0
 		 -39.506399999896551 6.0314501444824451 -0.41712847592964664 1;
 	setAttr ".radi" 3;
+	setAttr ".liw" yes;
 createNode parentConstraint -n "R_Toe_03_FK_Jnt_parentConstraint1" -p "R_Toe_03_FK_Jnt";
 	rename -uid "1B9219AA-4ACC-A267-1A47-58883A9A64ED";
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Toe_03_FK_Jnt_Ctrl_GrpW0" -dv 1 
@@ -51417,15 +51440,15 @@ createNode scaleConstraint -n "R_Foot_Ctrl_Grp_scaleConstraint1" -p "R_Foot_Ctrl
 	setAttr ".erp" yes;
 	setAttr -k on ".w0";
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "10BA31A6-4E38-1B3D-83B2-FC9DE153FF30";
+	rename -uid "576333CF-4504-8086-9866-A29EEF45C894";
 	setAttr -s 3 ".lnk";
 	setAttr -s 3 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "963C1F84-4A21-642C-8BEA-2F9FFC2836F4";
+	rename -uid "D5B34AAC-4763-861F-08FF-268190841250";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "9F224250-4AE2-063D-2BED-88A981C5EE95";
+	rename -uid "397A54CA-48B2-7820-EEB7-60AD9FCCAFA0";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "A11C951C-4D82-BFE0-C7CE-F3A188A9DE55";
+	rename -uid "A6AD9E3B-437E-2F66-9AF5-1495A9DE6358";
 	setAttr ".cdl" 7;
 	setAttr -s 8 ".dli[1:7]"  1 2 3 4 5 6 7;
 	setAttr -s 4 ".dli";
@@ -51433,7 +51456,7 @@ createNode displayLayer -n "defaultLayer";
 	rename -uid "E85FFBB4-4731-C127-0C08-DB88ED688406";
 	setAttr ".ufem" -type "stringArray" 0  ;
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "F6925BCF-4FEA-3E64-BDAD-CD9DD45D9446";
+	rename -uid "754467E0-4D61-9E33-26DC-568B5C4BDC64";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "1C51CB29-4ACA-0D8E-9A12-39B0051E3B90";
 	setAttr ".g" yes;
@@ -53500,7 +53523,7 @@ createNode skinCluster -n "skinCluster1";
 		1 1 1
 		1 1 1
 		1 1 1
-		1 8 1
+		1 1 1
 		1 1 1
 		1 1 1
 		1 1 1
@@ -53548,7 +53571,6 @@ createNode skinCluster -n "skinCluster1";
 		1 1 1
 		1 1 1
 		1 1 1
-		1 8 1
 		1 1 1
 		1 1 1
 		1 1 1
@@ -53860,15 +53882,12 @@ createNode skinCluster -n "skinCluster1";
 		1 1 1
 		1 1 1
 		1 1 1
-		1 8 1
-		1 8 1
 		1 1 1
 		1 1 1
 		1 1 1
 		1 1 1
 		1 1 1
 		1 1 1
-		1 8 1
 		1 1 1
 		1 1 1
 		1 1 1
@@ -53944,8 +53963,6 @@ createNode skinCluster -n "skinCluster1";
 		1 1 1
 		1 1 1
 		1 1 1
-		1 8 1
-		1 8 1
 		1 1 1
 		1 1 1
 		1 1 1
@@ -53998,32 +54015,38 @@ createNode skinCluster -n "skinCluster1";
 		1 1 1
 		1 1 1
 		1 1 1
-		1 8 1
-		1 8 1
 		1 1 1
 		1 1 1
 		1 1 1
 		1 1 1
 		1 1 1
 		1 1 1
-		1 8 1
-		1 8 1
 		1 1 1
 		1 1 1
 		1 1 1
 		1 1 1
 		1 1 1
 		1 1 1
-		1 8 1
-		1 8 1
 		1 1 1
 		1 1 1
 		1 1 1
 		1 1 1
 		1 1 1
 		1 1 1
-		1 8 1
-		1 8 1
+		1 1 1
+		1 1 1
+		1 1 1
+		1 1 1
+		1 1 1
+		1 1 1
+		1 1 1
+		1 1 1
+		1 1 1
+		1 1 1
+		1 1 1
+		1 1 1
+		1 1 1
+		1 1 1
 		1 1 1
 		1 1 1
 		1 1 1
@@ -56457,7 +56480,7 @@ createNode skinCluster -n "skinCluster1";
 		1 1 1
 		1 1 1
 		1 1 1
-		1 8 1
+		1 1 1
 		1 1 1
 		1 5 1
 		1 5 1
@@ -58037,7 +58060,7 @@ createNode skinCluster -n "skinCluster1";
 		1 6 1
 		1 6 1
 		1 6 1;
-	setAttr ".wl[6500:6997].w"
+	setAttr ".wl[6500:6999].w"
 		1 6 1
 		1 6 1
 		1 6 1
@@ -58346,7 +58369,6 @@ createNode skinCluster -n "skinCluster1";
 		1 1 1
 		1 1 1
 		1 1 1
-		2 1 2.2856056602904573e-08 8 0.9999999771439434
 		1 1 1
 		1 1 1
 		1 1 1
@@ -58385,7 +58407,10 @@ createNode skinCluster -n "skinCluster1";
 		1 1 1
 		1 1 1
 		1 1 1
-		2 1 2.384185791015625e-07 8 0.9999997615814209
+		1 1 1
+		1 1 1
+		1 1 1
+		1 1 1
 		1 1 1
 		1 1 1
 		1 1 1
@@ -58536,7 +58561,7 @@ createNode skinCluster -n "skinCluster1";
 		1 1 1
 		1 1 1
 		1 1 1;
-	setAttr ".wl[6998:7486].w"
+	setAttr ".wl[7000:7496].w"
 		1 1 1
 		1 1 1
 		1 1 1
@@ -58654,15 +58679,11 @@ createNode skinCluster -n "skinCluster1";
 		1 1 1
 		1 1 1
 		1 1 1
-		1 8 1
-		2 1 5.3644180297851562e-07 8 0.99999946355819702
 		1 1 1
 		1 1 1
 		1 1 1
 		1 1 1
-		2 1 0.9999996102358466 8 3.8976415339675441e-07
 		1 1 1
-		2 1 1.7881393432617188e-07 8 0.99999982118606567
 		1 1 1
 		1 1 1
 		1 1 1
@@ -58726,8 +58747,6 @@ createNode skinCluster -n "skinCluster1";
 		1 1 1
 		1 1 1
 		1 1 1
-		1 8 1
-		2 1 1.1920928955078125e-07 8 0.99999988079071045
 		1 1 1
 		1 1 1
 		1 1 1
@@ -58771,36 +58790,40 @@ createNode skinCluster -n "skinCluster1";
 		1 1 1
 		1 1 1
 		1 1 1
-		1 8 1
-		1 8 1
 		1 1 1
 		1 1 1
 		1 1 1
 		1 1 1
 		1 1 1
 		1 1 1
-		1 8 1
-		2 1 1.7881393432617188e-07 8 0.99999982118606567
 		1 1 1
 		1 1 1
 		1 1 1
 		1 1 1
 		1 1 1
 		1 1 1
-		1 8 1
-		1 8 1
+		1 1 1
+		1 1 1
+		1 1 1
+		1 1 1
+		1 1 1
+		1 1 1
+		1 1 1
+		1 1 1
+		1 1 1
+		1 1 1
 		1 1 1
 		1 1 1
 		2 1 0.99999999999973999 8 2.6001832523041279e-13
 		1 1 1
 		2 1 0.99999999999901967 8 9.8034319377660051e-13
-		2 1 0.9999994953877831 8 5.0461221690056846e-07
-		1 8 1
-		1 8 1
 		1 1 1
 		1 1 1
-		2 1 0.99999986940245833 8 1.3059754166988569e-07
-		2 1 0.99999990387516391 8 9.612483609089395e-08
+		1 1 1
+		1 1 1
+		1 1 1
+		1 1 1
+		1 1 1
 		2 1 0.9999999999998197 8 1.8032296033969331e-13
 		1 1 1
 		1 1 1
@@ -59025,8 +59048,18 @@ createNode skinCluster -n "skinCluster1";
 		1 1 1
 		1 1 1
 		1 1 1
+		1 1 1
+		1 1 1
+		1 1 1
+		1 1 1
+		1 1 1
+		1 1 1
+		1 1 1
+		1 1 1
+		1 1 1
+		1 1 1
 		1 1 1;
-	setAttr ".wl[7487:7986].w"
+	setAttr ".wl[7497:7996].w"
 		1 1 1
 		1 1 1
 		1 1 1
@@ -59196,16 +59229,6 @@ createNode skinCluster -n "skinCluster1";
 		1 1 1
 		1 1 1
 		1 1 1
-		1 1 1
-		1 1 1
-		1 1 1
-		1 1 1
-		1 1 1
-		1 1 1
-		1 1 1
-		1 1 1
-		1 1 1
-		1 1 1
 		1 22 1
 		1 22 1
 		1 22 1
@@ -59339,6 +59362,16 @@ createNode skinCluster -n "skinCluster1";
 		1 22 1
 		1 22 1
 		1 22 1
+		1 15 1
+		1 15 1
+		1 15 1
+		1 15 1
+		1 15 1
+		1 15 1
+		1 15 1
+		1 15 1
+		1 15 1
+		1 15 1
 		1 15 1
 		1 15 1
 		1 15 1
@@ -59527,7 +59560,7 @@ createNode skinCluster -n "skinCluster1";
 		1 15 1
 		1 15 1
 		1 15 1;
-	setAttr ".wl[7987:8486].w"
+	setAttr ".wl[7997:8496].w"
 		1 15 1
 		1 15 1
 		1 15 1
@@ -59732,16 +59765,6 @@ createNode skinCluster -n "skinCluster1";
 		1 15 1
 		1 15 1
 		1 15 1
-		1 15 1
-		1 15 1
-		1 15 1
-		1 15 1
-		1 15 1
-		1 15 1
-		1 15 1
-		1 15 1
-		1 15 1
-		1 15 1
 		1 16 1
 		1 16 1
 		1 16 1
@@ -59920,6 +59943,16 @@ createNode skinCluster -n "skinCluster1";
 		1 16 1
 		1 16 1
 		1 16 1
+		1 14 1
+		1 14 1
+		1 14 1
+		1 14 1
+		1 14 1
+		1 14 1
+		1 14 1
+		1 14 1
+		1 14 1
+		1 14 1
 		1 14 1
 		1 14 1
 		1 14 1
@@ -60028,17 +60061,7 @@ createNode skinCluster -n "skinCluster1";
 		1 14 1
 		1 14 1
 		1 14 1;
-	setAttr ".wl[8487:8986].w"
-		1 14 1
-		1 14 1
-		1 14 1
-		1 14 1
-		1 14 1
-		1 14 1
-		1 14 1
-		1 14 1
-		1 14 1
-		1 14 1
+	setAttr ".wl[8497:8996].w"
 		1 14 1
 		1 14 1
 		1 14 1
@@ -60528,18 +60551,18 @@ createNode skinCluster -n "skinCluster1";
 		1 30 1
 		1 30 1
 		1 30 1
+		1 30 1
+		1 30 1
+		1 30 1
+		1 30 1
+		1 30 1
+		1 30 1
+		1 30 1
+		1 30 1
+		1 30 1
+		1 30 1
 		1 30 1;
-	setAttr ".wl[8987:9486].w"
-		1 30 1
-		1 30 1
-		1 30 1
-		1 30 1
-		1 30 1
-		1 30 1
-		1 30 1
-		1 30 1
-		1 30 1
-		1 30 1
+	setAttr ".wl[8997:9496].w"
 		1 21 1
 		1 21 1
 		1 21 1
@@ -60922,6 +60945,16 @@ createNode skinCluster -n "skinCluster1";
 		1 21 1
 		1 21 1
 		1 21 1
+		1 23 1
+		1 23 1
+		1 23 1
+		1 23 1
+		1 23 1
+		1 23 1
+		1 23 1
+		1 23 1
+		1 23 1
+		1 23 1
 		1 23 1
 		1 23 1
 		1 23 1
@@ -61030,17 +61063,7 @@ createNode skinCluster -n "skinCluster1";
 		1 23 1
 		1 23 1
 		1 23 1;
-	setAttr ".wl[9487:9661].w"
-		1 23 1
-		1 23 1
-		1 23 1
-		1 23 1
-		1 23 1
-		1 23 1
-		1 23 1
-		1 23 1
-		1 23 1
-		1 23 1
+	setAttr ".wl[9497:9661].w"
 		1 23 1
 		1 23 1
 		1 23 1
@@ -61540,7 +61563,6 @@ createNode nodeGraphEditorInfo -n "MayaNodeEditorSavedTabsInfo";
 	setAttr ".tgi[0].ni[24].nvs" 18304;
 createNode displayLayer -n "GeoLayer";
 	rename -uid "503AC0FD-4EBE-72C9-85BF-AB88F5A0DBD9";
-	setAttr ".dt" 2;
 	setAttr ".ufem" -type "stringArray" 0  ;
 	setAttr ".do" 3;
 createNode displayLayer -n "JointLayer";
@@ -61551,6 +61573,7 @@ createNode displayLayer -n "JointLayer";
 	setAttr ".do" 2;
 createNode displayLayer -n "ControlLayer";
 	rename -uid "E42C23E5-4431-B5C6-7AB4-90915A434F42";
+	setAttr ".dt" 2;
 	setAttr ".ufem" -type "stringArray" 0  ;
 	setAttr ".do" 1;
 select -ne :time1;
@@ -64017,7 +64040,7 @@ connectAttr "R_Foot_FK_Jnt.obcc" "skinCluster1.ifcl[29]";
 connectAttr "R_Toe_01_FK_Jnt.obcc" "skinCluster1.ifcl[30]";
 connectAttr "R_Toe_02_FK_Jnt.obcc" "skinCluster1.ifcl[31]";
 connectAttr "R_Toe_03_FK_Jnt.obcc" "skinCluster1.ifcl[32]";
-connectAttr "R_Leg_03_RK_Jnt.msg" "skinCluster1.ptt";
+connectAttr "Spine_02_FK_Jnt.msg" "skinCluster1.ptt";
 connectAttr "Robot.msg" "bindPose1.m[0]";
 connectAttr "Skeleton.msg" "bindPose1.m[1]";
 connectAttr "COG_Jnt.msg" "bindPose1.m[2]";
